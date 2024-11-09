@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Unit } = require('../models/unit');
 
-router.get('/', async (req, res) => {
+router.get('/unit', async (req, res) => {
     try {
         const units = await Unit.findAll();
         res.json(units);
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/unit/:id', async (req, res) => {
     try {
         const unit = await Unit.findByPk(req.params.id);
         if (unit) {
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/unit', async (req, res) => {
     try {
         const newUnit = await Unit.create(req.body);
         res.status(201).json(newUnit);
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/unit/:id', async (req, res) => {
     try {
         const unit = await Unit.findByPk(req.params.id);
         if (unit) {
@@ -47,7 +47,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/unit/:id', async (req, res) => {
     try {
         const rowsDeleted = await Unit.destroy({ where: { unit_id: req.params.id } });
         if (rowsDeleted) {

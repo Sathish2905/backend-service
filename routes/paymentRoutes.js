@@ -4,7 +4,7 @@ const { Payment } = require('../models/payment');
 const { Order } = require('../models/Order'); 
 
 // Get all payments
-router.get('/', async (req, res) => {
+router.get('/payment', async (req, res) => {
   try {
     const payments = await Payment.findAll();
     res.json(payments);
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get payment by ID
-router.get('/:id', async (req, res) => {
+router.get('/payment/:id', async (req, res) => {
   try {
     const payment = await Payment.findByPk(req.params.id);
     if (!payment) return res.status(404).json({ message: 'Payment not found' });
@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create new payment
-router.post('/', async (req, res) => {
+router.post('/payment', async (req, res) => {
   try {
     const { order_id, payment_method, amount, status } = req.body;
     
@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update a payment
-router.put('/:id', async (req, res) => {
+router.put('/payment/:id', async (req, res) => {
   try {
     const payment = await Payment.findByPk(req.params.id);
     if (!payment) return res.status(404).json({ message: 'Payment not found' });
@@ -61,7 +61,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a payment
-router.delete('/:id', async (req, res) => {
+router.delete('/payment/:id', async (req, res) => {
   try {
     const payment = await Payment.findByPk(req.params.id);
     if (!payment) return res.status(404).json({ message: 'Payment not found' });

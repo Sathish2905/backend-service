@@ -4,7 +4,7 @@ const { Address } = require('../models/address');
 const { User } = require('../models/user');
 
 // Get all addresses
-router.get('/', async (req, res) => {
+router.get('/address', async (req, res) => {
   try {
     const addresses = await Address.findAll();
     res.json(addresses);
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get address by ID
-router.get('/:id', async (req, res) => {
+router.get('/address/:id', async (req, res) => {
   try {
     const address = await Address.findByPk(req.params.id);
     if (!address) return res.status(404).json({ message: 'Address not found' });
@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create new address
-router.post('/', async (req, res) => {
+router.post('/address', async (req, res) => {
   try {
     const { user_id, address_type, street, city, state, postal_code, country } = req.body;
     
@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update an address
-router.put('/:id', async (req, res) => {
+router.put('/address/:id', async (req, res) => {
   try {
     const address = await Address.findByPk(req.params.id);
     if (!address) return res.status(404).json({ message: 'Address not found' });
@@ -64,7 +64,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete an address
-router.delete('/:id', async (req, res) => {
+router.delete('/address/:id', async (req, res) => {
   try {
     const address = await Address.findByPk(req.params.id);
     if (!address) return res.status(404).json({ message: 'Address not found' });

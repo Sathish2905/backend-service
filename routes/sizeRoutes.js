@@ -3,7 +3,7 @@ const router = express.Router();
 const { Size } = require('../models/size');
 
 // Get all sizes
-router.get('/', async (req, res) => {
+router.get('/size', async (req, res) => {
     try {
         const sizes = await Size.findAll();
         res.json(sizes);
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get a specific size by ID
-router.get('/:id', async (req, res) => {
+router.get('/size/:id', async (req, res) => {
     try {
         const size = await Size.findByPk(req.params.id);
         if (size) {
@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create a new size
-router.post('/', async (req, res) => {
+router.post('/size', async (req, res) => {
     try {
         const newSize = await Size.create(req.body);
         res.status(201).json(newSize);
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update an existing size
-router.put('/:id', async (req, res) => {
+router.put('/size/:id', async (req, res) => {
     try {
         const size = await Size.findByPk(req.params.id);
         if (size) {
@@ -52,7 +52,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a size
-router.delete('/:id', async (req, res) => {
+router.delete('/size/:id', async (req, res) => {
     try {
         const rowsDeleted = await Size.destroy({ where: { size_id: req.params.id } });
         if (rowsDeleted) {

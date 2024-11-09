@@ -3,7 +3,7 @@ const router = express.Router();
 const AuditLog = require('../models/auditLog');
 
 // Get all audit logs
-router.get('/', async (req, res) => {
+router.get('/auditLog', async (req, res) => {
     try {
         const logs = await AuditLog.findAll();
         res.json(logs);
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get audit logs by property key
-router.get('/property/:property_key', async (req, res) => {
+router.get('/auditLog/property/:property_key', async (req, res) => {
     const { property_key } = req.params;
     try {
         const logs = await AuditLog.findAll({ where: { property_key } });
@@ -24,7 +24,7 @@ router.get('/property/:property_key', async (req, res) => {
 });
 
 // Get audit logs by user who made the change
-router.get('/changedBy/:changed_by', async (req, res) => {
+router.get('/auditLog/changedBy/:changed_by', async (req, res) => {
     const { changed_by } = req.params;
     try {
         const logs = await AuditLog.findAll({ where: { changed_by } });
@@ -35,7 +35,7 @@ router.get('/changedBy/:changed_by', async (req, res) => {
 });
 
 // Create an audit log entry (this would generally be called internally, not exposed via API)
-router.post('/', async (req, res) => {
+router.post('/auditLog', async (req, res) => {
     const { property_key, old_value, new_value, changed_by } = req.body;
     try {
         const log = await AuditLog.create({

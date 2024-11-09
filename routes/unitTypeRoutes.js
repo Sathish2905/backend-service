@@ -3,7 +3,7 @@ const router = express.Router();
 const { UnitType } = require('../models/unitType');
 
 // Get all unit types
-router.get('/', async (req, res) => {
+router.get('/unitType/', async (req, res) => {
     try {
         const unitTypes = await UnitType.findAll();
         res.json(unitTypes);
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get a specific unit type by ID
-router.get('/:id', async (req, res) => {
+router.get('/unitType/:id', async (req, res) => {
     try {
         const unitType = await UnitType.findByPk(req.params.id);
         if (unitType) {
@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create a new unit type
-router.post('/', async (req, res) => {
+router.post('/unitType', async (req, res) => {
     try {
         const newUnitType = await UnitType.create(req.body);
         res.status(201).json(newUnitType);
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update an existing unit type
-router.put('/:id', async (req, res) => {
+router.put('/unitType/:id', async (req, res) => {
     try {
         const unitType = await UnitType.findByPk(req.params.id);
         if (unitType) {
@@ -52,7 +52,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a unit type
-router.delete('/:id', async (req, res) => {
+router.delete('/unitType/:id', async (req, res) => {
     try {
         const rowsDeleted = await UnitType.destroy({ where: { unit_type_id: req.params.id } });
         if (rowsDeleted) {

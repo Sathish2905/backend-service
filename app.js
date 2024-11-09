@@ -32,18 +32,18 @@ app.use('/api', productRoutes);
 app.use('/api', productImageRoutes);
 app.use('/api', inventoryRoutes);                
 app.use('/api', cartRoutes);            
-app.use('/api/', orderRoutes); 
-app.use('/api/', paymentRoutes); 
-app.use('/api/', addressRoutes); 
-app.use('/api/', shippingRoutes);
-app.use('/api/', reviewRoutes);
-app.use('/api/unitTypes', unitTypeRoutes);
-app.use('/api/units', unitRoutes);
-app.use('/api/productUnits', productUnitRoutes);
-app.use('/api/sizes', sizeRoutes);
-app.use('/api/productVariants', productVariantRoutes);
-app.use('/api/siteProperty', sitePropertyRoutes);
-app.use('/api/auditLog', auditLogRoutes);
+app.use('/api', orderRoutes); 
+app.use('/api', paymentRoutes); 
+app.use('/api', addressRoutes); 
+app.use('/api', shippingRoutes);
+app.use('/api', reviewRoutes);
+app.use('/api', unitTypeRoutes);
+app.use('/api', unitRoutes);
+app.use('/api', productUnitRoutes);
+app.use('/api', sizeRoutes);
+app.use('/api', productVariantRoutes);
+app.use('/api', sitePropertyRoutes);
+app.use('/api', auditLogRoutes);
 
 
 

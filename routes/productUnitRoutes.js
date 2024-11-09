@@ -3,7 +3,7 @@ const router = express.Router();
 const { ProductUnit } = require('../models/productUnit');
 
 // Get all product units
-router.get('/', async (req, res) => {
+router.get('/productUnit', async (req, res) => {
     try {
         const productUnits = await ProductUnit.findAll();
         res.json(productUnits);
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get a specific product unit by ID
-router.get('/:id', async (req, res) => {
+router.get('/productUnit/:id', async (req, res) => {
     try {
         const productUnit = await ProductUnit.findByPk(req.params.id);
         if (productUnit) {
@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create a new product unit
-router.post('/', async (req, res) => {
+router.post('/productUnit', async (req, res) => {
     try {
         const newProductUnit = await ProductUnit.create(req.body);
         res.status(201).json(newProductUnit);
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update an existing product unit
-router.put('/:id', async (req, res) => {
+router.put('/productUnit/:id', async (req, res) => {
     try {
         const productUnit = await ProductUnit.findByPk(req.params.id);
         if (productUnit) {
@@ -52,7 +52,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a product unit
-router.delete('/:id', async (req, res) => {
+router.delete('/productUnit/:id', async (req, res) => {
     try {
         const rowsDeleted = await ProductUnit.destroy({ where: { product_unit_id: req.params.id } });
         if (rowsDeleted) {

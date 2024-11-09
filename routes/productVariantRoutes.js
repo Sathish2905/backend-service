@@ -3,7 +3,7 @@ const router = express.Router();
 const { ProductVariant } = require('../models/productVariant');
 
 // Get all product variants
-router.get('/', async (req, res) => {
+router.get('/productVariant', async (req, res) => {
     try {
         const productVariants = await ProductVariant.findAll();
         res.json(productVariants);
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get a specific product variant by ID
-router.get('/:id', async (req, res) => {
+router.get('/productVariant/:id', async (req, res) => {
     try {
         const productVariant = await ProductVariant.findByPk(req.params.id);
         if (productVariant) {
@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create a new product variant
-router.post('/', async (req, res) => {
+router.post('/productVariant', async (req, res) => {
     try {
         const newProductVariant = await ProductVariant.create(req.body);
         res.status(201).json(newProductVariant);
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update an existing product variant
-router.put('/:id', async (req, res) => {
+router.put('/productVariant/:id', async (req, res) => {
     try {
         const productVariant = await ProductVariant.findByPk(req.params.id);
         if (productVariant) {
@@ -52,7 +52,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a product variant
-router.delete('/:id', async (req, res) => {
+router.delete('/productVariant/:id', async (req, res) => {
     try {
         const rowsDeleted = await ProductVariant.destroy({ where: { variant_id: req.params.id } });
         if (rowsDeleted) {
