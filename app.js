@@ -45,7 +45,21 @@ app.use('/api', productVariantRoutes);
 app.use('/api', sitePropertyRoutes);
 app.use('/api', auditLogRoutes);
 
+const allowedOrigins = [
+  'https://mystore-git-dev-sathish-kumar-t.vercel.app', // Vercel origin
+  'http://localhost:3000',
+  'http://localhost:5173'// Local origin,
+];
 
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 
 const PORT = process.env.PORT || 3000;
 
