@@ -22,6 +22,8 @@ const sizeRoutes = require('./routes/sizeRoutes');
 const productVariantRoutes = require('./routes/productVariantRoutes');
 const sitePropertyRoutes = require('./routes/sitePropertyRoutes');
 const auditLogRoutes = require('./routes/auditLogRoutes');
+const userRoleRoutes = require('./routes/userRoleRoutes');
+
 
 const allowedOrigins = [
   'http://localhost:5173'// Local origin,
@@ -61,6 +63,8 @@ app.use('/api', sizeRoutes);
 app.use('/api', productVariantRoutes);
 app.use('/api', sitePropertyRoutes);
 app.use('/api', auditLogRoutes);
+app.use('/api', userRoleRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 

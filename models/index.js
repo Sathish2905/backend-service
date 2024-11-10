@@ -109,6 +109,7 @@ module.exports = {
     sequelize,
     User,
     Role,
+    UserRole,
     Category,
     Product,
     ProductImage,
