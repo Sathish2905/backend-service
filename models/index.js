@@ -28,6 +28,7 @@ const AuditLog = require('./auditLog');
 // Initialize models with sequelize
 User.init(sequelize, DataTypes);
 Role.init(sequelize, DataTypes);
+UserRole.init(sequelize, DataTypes);
 Category.init(sequelize, DataTypes);
 Product.init(sequelize, DataTypes);
 ProductImage.init(sequelize, DataTypes);
